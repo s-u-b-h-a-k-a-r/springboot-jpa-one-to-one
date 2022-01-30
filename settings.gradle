@@ -1,0 +1,4 @@
+rootProject.name = 'springboot-jpa-one-to-one'
+
+include 'unidirectional'
+include 'bidirectional'
