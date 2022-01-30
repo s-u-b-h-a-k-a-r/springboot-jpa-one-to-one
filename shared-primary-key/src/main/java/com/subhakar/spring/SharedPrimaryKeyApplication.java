@@ -36,6 +36,16 @@ public class SharedPrimaryKeyApplication {
                         .build();
                 postDetailsRepository.save(postDetails);
 
+                faker = new Faker();
+                postDetails = PostDetails.builder()
+                        .createdBy(faker.name().name())
+                        .post(Post.builder()
+                                .title(faker.harryPotter().book())
+                                .build())
+                        .createdOn(new Date())
+                        .build();
+                postDetailsRepository.save(postDetails);
+
                 Optional<Post> optionalPost = postRepository.findById(1L);
                 Optional<PostDetails> optionalPostDetails = postDetailsRepository.findById(optionalPost.get().getId());
 
