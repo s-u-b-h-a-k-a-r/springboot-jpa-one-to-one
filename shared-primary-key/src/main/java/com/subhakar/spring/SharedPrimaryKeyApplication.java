@@ -16,9 +16,9 @@ import java.util.Optional;
 
 @Slf4j
 @SpringBootApplication
-public class ShardPrimaryKeyApplication {
+public class SharedPrimaryKeyApplication {
     public static void main(String[] args) {
-        SpringApplication.run(ShardPrimaryKeyApplication.class, args);
+        SpringApplication.run(SharedPrimaryKeyApplication.class, args);
     }
 
     @Bean
