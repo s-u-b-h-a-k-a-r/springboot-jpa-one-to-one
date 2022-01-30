@@ -28,23 +28,21 @@ public class ShardPrimaryKeyApplication {
             public void run(String... args) throws Exception {
                 Faker faker = new Faker();
 
-                Post post = Post.builder()
-                        .title(faker.harryPotter().book())
-                        .build();
-                postRepository.save(post);
 
                 PostDetails postDetails = PostDetails.builder()
                         .createdBy(faker.name().name())
-                        .post(postRepository.findById(1L).get())
+                        .post(Post.builder()
+                                .title(faker.harryPotter().book())
+                                .build())
                         .createdOn(new Date())
                         .build();
                 postDetailsRepository.save(postDetails);
 
                 Optional<Post> optionalPost = postRepository.findById(1L);
-                Optional<PostDetails> optionalPostDetails = postDetailsRepository.findById(2L);
+                Optional<PostDetails> optionalPostDetails = postDetailsRepository.findById(optionalPost.get().getId());
 
                 log.info(optionalPost.get() + "");
-                log.info(optionalPostDetails.get() + ":" + optionalPostDetails.get().getPost());
+                log.info(optionalPostDetails.get() + "");
             }
         };
     }
