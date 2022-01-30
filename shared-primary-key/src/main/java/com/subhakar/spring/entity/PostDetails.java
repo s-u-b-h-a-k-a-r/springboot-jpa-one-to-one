@@ -14,13 +14,12 @@ import java.util.Date;
 @Table(name = "post_details")
 public class PostDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private Date createdOn;
     private String createdBy;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false)
     @MapsId
     @JoinColumn(name = "id")
     private Post post;
