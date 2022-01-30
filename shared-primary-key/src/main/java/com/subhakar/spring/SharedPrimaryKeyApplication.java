@@ -27,8 +27,6 @@ public class SharedPrimaryKeyApplication {
             @Override
             public void run(String... args) throws Exception {
                 Faker faker = new Faker();
-
-
                 PostDetails postDetails = PostDetails.builder()
                         .createdBy(faker.name().name())
                         .post(Post.builder()
