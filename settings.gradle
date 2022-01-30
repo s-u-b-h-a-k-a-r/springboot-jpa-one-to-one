@@ -2,3 +2,4 @@ rootProject.name = 'springboot-jpa-one-to-one'
 
 include 'unidirectional'
 include 'bidirectional'
+include 'shared-primary-key'
